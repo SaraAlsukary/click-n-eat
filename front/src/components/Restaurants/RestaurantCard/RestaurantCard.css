@@ -1,0 +1,75 @@
+.details {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    opacity: .7;
+    top: 0;
+    transform: translateX(100%);
+    transition: .7s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--main-color);
+    text-align: center;
+}
+
+.restCard:hover .details {
+    transform: translateX(0);
+}
+
+.details h3 {
+    color: #fff;
+    margin-top: 20px;
+}
+
+.details p {
+    color: #fff;
+    margin-top: 20px;
+}
+
+.restCard {
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    width: 350px;
+    height: 430px;
+    transition: .3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+.restCard:hover {
+    transform: translate(3px, -3px);
+    box-shadow: 0 0 10px 2px #000;
+}
+
+
+.restCard img {
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    border: 1px solid #000;
+    box-shadow: 0 0 3px 2px #000;
+    transition: .3s;
+}
+
+
+@media screen and (max-width:991px) {
+    .restCard {
+        width: 300px;
+    }
+
+
+}
+
+@media screen and (max-width:500px) {
+    .restCard {
+        width: 400px;
+    }
+
+
+}

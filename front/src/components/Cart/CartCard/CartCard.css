@@ -1,0 +1,31 @@
+.cartItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.cartItem:not(:last-of-type) {
+    border-bottom: 1px solid #fff;
+}
+
+.cartItem img {
+    width: 70px;
+    height: 70px;
+}
+
+.cartItem .counting {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cartItem .counting span {
+    color: #fff;
+    background-color: var(--main-color);
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    cursor: pointer;
+    margin: 0 4px;
+    border-radius: 4px;
+}

@@ -1,0 +1,47 @@
+ .menuCard {
+     border: 1px solid var(--main-color);
+     display: flex;
+     align-items: center;
+     width: 170px;
+     height: 120px;
+     border-radius: 5px;
+     cursor: pointer;
+     transition: .3s;
+     justify-content: space-between;
+     padding: 10px;
+     color: var(--main-color);
+ }
+
+ .menuCard:hover {
+     color: #fff;
+     background-color: var(--main-color);
+ }
+
+ .menuCard.active {
+     color: #fff;
+     background-color: var(--main-color);
+ }
+
+ .menuCard:hover img {
+     border: 2px solid #fff;
+ }
+
+ .menuCard.active img {
+     border: 2px solid #fff;
+     cursor: pointer;
+ }
+
+ .menuCard img {
+     width: 70px;
+     height: 70px;
+     border-radius: 50%;
+     border: 2px solid var(--main-color);
+     margin-right: 10px;
+
+ }
+
+ .menuCard p {
+     margin-right: 20px;
+     margin-top: 20px;
+
+ }

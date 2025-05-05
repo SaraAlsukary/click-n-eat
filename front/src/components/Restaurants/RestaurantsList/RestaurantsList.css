@@ -1,0 +1,12 @@
+ .restList {
+     justify-content: center;
+     align-items: center;
+     padding: 50px 44px;
+     gap: 10px;
+ }
+
+ @media screen and (max-width:767px) {
+     .restList {
+         justify-content: center;
+     }
+ }

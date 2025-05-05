@@ -1,0 +1,55 @@
+.cartList {
+    z-index: 1000;
+    transform: translateX(400px);
+    width: 400px;
+    height: 100vh;
+    transition: .3s;
+    color: #fff;
+    background-color: #2d2d2d;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+.cartList.show {
+    transform: translateX(0);
+}
+
+.cartList .btns {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.cartList .total {
+    position: absolute;
+    bottom: 49px;
+    left: 10px;
+}
+
+.cartList .btns button {
+    width: 50%;
+    transition: .3s;
+    border: none;
+    padding: 10px;
+}
+
+.cartList .btns button.close {
+    background-color: var(--main-color);
+    color: #fff;
+}
+
+.cartList .btns button.checkout {
+    background-color: var(--secondary-color);
+    color: #fff;
+}
+
+.cartList .btns button.close:hover {
+    background-color: rgb(191 46 46);
+    ;
+}
+
+.cartList .btns button.checkout:hover {
+    background-color: rgb(195 195 46);
+    ;
+}

@@ -1,0 +1,48 @@
+.login {
+    padding: 136px 0;
+}
+
+.dangerAlert {
+    width: 300px;
+    margin-top: 10px;
+}
+
+.form input {
+    width: 300px;
+}
+
+
+.form input:focus {
+    box-shadow: 0 0 5px 3px var(--main-color);
+    border: 1px solid var(--main-color);
+}
+
+.form input::placeholder {
+    color: var(--main-color);
+}
+
+.loginCont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.loginBtn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.textCreate {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.textCreate a {
+    color: var(--main-color);
+    margin-right: 30px;
+}
