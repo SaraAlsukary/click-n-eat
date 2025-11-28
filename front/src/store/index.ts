@@ -23,11 +23,11 @@ const rootPersistConfig = {
     whitelist: ["cart", "auth"],
 };
 
-const authPersistConfig = {
-    key: "auth",
-    storage,
-    whiteList: ["user", "accessToken"],
-};
+// const authPersistConfig = {
+//     key: "auth",
+//     storage,
+//     whiteList: ["user", "accessToken"],
+// };
 
 const cartPersistConfig = {
     key: "cart",
@@ -36,14 +36,17 @@ const cartPersistConfig = {
 };
 
 const rootReducer = combineReducers({
-    auth: persistReducer(authPersistConfig, auth),
+    // auth: persistReducer(authPersistConfig, auth),
+    // categories,
+    auth,
     categories,
     meals,
     restaurants,
+    // cart,
     cart: persistReducer(cartPersistConfig, cart),
     orders,
 });
-
+localStorage.removeItem('cart')
 const persistedReducer = persistReducer(rootPersistConfig, rootReducer);
 
 const store = configureStore({

@@ -14,7 +14,7 @@ const ProductList = () => {
     const { data, error, loading } = useAppSelector(state => state.meals);
     const { id } = useAppSelector(state => state.categories);
     const mealsData = data?.meal;
-    const mealsCard = mealsData?.map(meal => <MealsCard id={meal.id} title={meal.name} text={meal.description} />)
+    const mealsCard = mealsData?.map(meal => <MealsCard id={meal.id} media={meal.media} price={meal.pivot.price} title={meal.name} text={meal.description} />)
     useEffect(() => {
         var promise = dispatch<any>(actGetMealsByIds(mealsId as string))
         return () => {

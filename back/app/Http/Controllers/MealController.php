@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Meal;
 use App\Http\Requests\StoreMealRequest;
 use App\Http\Requests\UpdateMealRequest;
+use App\Http\Resources\MealShowResources;
 
 class MealController extends Controller
 {
@@ -32,7 +33,9 @@ class MealController extends Controller
      */
     public function show(Meal $meal)
     {
-        return response()->json($meal->load(['media']));
+        $show = $meal->load(['media', 'restaurantCayegory.category']);
+        return response()->json($show);
+        // return response()->json(['data' => MealShowResources::collection([$show])]);
     }
 
     /**

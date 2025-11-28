@@ -31,7 +31,7 @@ class RestaurantController extends Controller
      */
     public function show(Restaurant $restaurant)
     {
-        $data = $restaurant->load(['media', 'category']);
+        $data = $restaurant->load(['media', 'category', 'category.media']);
         return response()->json($data);
     }
 

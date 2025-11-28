@@ -1,8 +1,9 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import axiosErrorHandler from "@utils/axiosErrorHandler";
+import { TAuth } from "@customtypes/auth";
 
-type TResponse = Object;
+type TResponse = TAuth;
 type TFormData = {
   name: string;
   email: string;

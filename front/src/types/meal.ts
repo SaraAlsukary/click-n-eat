@@ -14,9 +14,14 @@ export type TMealProperty = {
             description_ar: string,
             created_at: string,
             updated_at: string,
+            media: [{
+                original_url: string
+
+            }]
             pivot: {
                 restaurant_category_id: number,
-                meal_id: number
+                meal_id: number,
+                price: number
             }
         }
     ]

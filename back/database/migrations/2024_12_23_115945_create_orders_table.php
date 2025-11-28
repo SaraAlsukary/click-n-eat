@@ -16,9 +16,15 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(User::class)->constrained();
-            $table->foreignIdFor(RestaurantCategoryMeal::class)->constrained();
             $table->string('type');
-            $table->string('price');
+            $table->integer('phone');
+            $table->string('address');
+            $table->integer('bankNumber');
+            $table->text('bankPassword');
+            $table->string('firstName');
+            $table->string('lastName');
+            $table->string('priceTotal');
+            $table->enum('status', ['ordered', 'delivered', 'canceled'])->default('ordered');
             $table->timestamps();
         });
     }

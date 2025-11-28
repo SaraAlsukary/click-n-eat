@@ -9,6 +9,7 @@ const Login = lazy(() => import("@pages/Login/Login"));
 const Menu = lazy(() => import("@pages/Menu/Menu"));
 const Restaurant = lazy(() => import("@pages/Restuarant/Restaurant"));
 const Registeration = lazy(() => import("@pages/Registeration/Registeration"));
+const Profile = lazy(() => import("@pages/Profile/Profile"));
 function AppRouter() {
   const router = createBrowserRouter([
     {
@@ -30,6 +31,9 @@ function AppRouter() {
         path: 'restaurant',
         element: <SuspensedPage><Restaurant /></SuspensedPage>,
 
+      }, {
+        path: 'profile',
+        element: <SuspensedPage><Profile /></SuspensedPage>
       },
       {
         path: 'restaurant/:id',
@@ -38,6 +42,12 @@ function AppRouter() {
       }, {
         path: 'restaurant/:id/categories/:mealsId',
         element: <SuspensedPage><Food /></SuspensedPage>
+      }, {
+        path: 'restaurant/:id/categories/:mealsId/checkout',
+        element: <SuspensedPage><Checkout /></SuspensedPage>
+      }, {
+        path: 'profile',
+        element: <SuspensedPage><Profile /></SuspensedPage>
       }
       ]
     }

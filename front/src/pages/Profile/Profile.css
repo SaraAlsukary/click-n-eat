@@ -1,0 +1,33 @@
+.profile{
+    height: 100vh;
+}
+.profile .nav {
+    box-shadow: 0 0 0 0 transparent;
+}
+
+.profile .nav-link {
+    color: var(--main-color);
+    border: 1px solid var(--main-color);
+}
+
+.profile ul li {
+    cursor: pointer;
+}
+
+.profile .nav-link:hover {
+    border: 1px solid var(--main-color);
+}
+
+.profile .nav-link.active {
+    border: 1px solid var(--main-color);
+    color: #fff;
+    background-color: var(--main-color);
+}
+
+.profile .settings {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+}

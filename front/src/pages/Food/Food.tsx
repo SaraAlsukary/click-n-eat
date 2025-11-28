@@ -7,7 +7,7 @@ const Food = () => {
         <div className='food'>
             <Container>
                 <MainTitle>Food</MainTitle>
-                <Cart count={0} />
+                <Cart />
                 <MealsList />
             </Container>
         </div>

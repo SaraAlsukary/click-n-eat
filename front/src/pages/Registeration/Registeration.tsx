@@ -3,11 +3,12 @@ import './Registeration.css'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button } from '@components/index'
 import { z } from 'zod';
-import { actAuthRegister } from '@store/auth/authSlice';
+import { actAuthLogin, actAuthRegister } from '@store/auth/authSlice';
 import { useForm, SubmitHandler } from "react-hook-form";
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useState } from 'react';
 import { useAppDispatch } from '@store/hook';
+import Cookie from 'cookie-universal';
 const schema = z.object({
     Name: z.string({ required_error: 'required field', invalid_type_error: 'username is required!' }),
     email: z.string({ required_error: 'required field', invalid_type_error: 'email is required!' }).email(),
@@ -22,6 +23,7 @@ type TUser = {
 
 }
 const Registeration = () => {
+    const cookie = Cookie()
     const [Name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -45,11 +47,15 @@ const Registeration = () => {
     const onSubmit: SubmitHandler<Inputs> = async () => {
         try {
             await new Promise((resolve) => setTimeout(resolve, 1000))
-            // throw new Error();
-            // console.log(data)
             dispatch(actAuthRegister(data))
                 .unwrap()
-                .then(() => navigate('/'))
+                .then((res) => {
+
+                    const token = res.authorisation.token;
+                    cookie.set('token', token);
+                    console.log(res)
+                    navigate('/')
+                })
             setEmail('')
             setName('')
             setPassword('')

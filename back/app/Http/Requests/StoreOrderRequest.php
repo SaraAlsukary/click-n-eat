@@ -11,7 +11,7 @@ class StoreOrderRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,29 @@ class StoreOrderRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'type' => 'required|string',
+            'phone' => 'required',
+            'address' => 'required|string',
+            'bankNumber' => 'required',
+            'bankPassword' => 'required',
+            'firstName' =>  'required|string',
+            'lastName' => 'required|string',
+            'priceTotal' => 'required',
+        ];
+    }
+
+    public function validated($key = null, $default = null)
+    {
+        return [
+            'type' => $this->type,
+            'phone' => $this->phone,
+            'address' => $this->address,
+            'bankNumber' => $this->bankNumber,
+            'bankPassword' => $this->bankPassword,
+            'firstName' =>  $this->firstName,
+            'lastName' => $this->lastName,
+            'priceTotal' => $this->priceTotal,
+            'user_id' => auth()->id(),
         ];
     }
 }

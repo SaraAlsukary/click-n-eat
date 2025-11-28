@@ -1,14 +1,14 @@
-import { Alert, Container, Form } from 'react-bootstrap'
-import './Login.css'
-import { zodResolver } from '@hookform/resolvers/zod'
-import './Login.css'
-import { Button } from '@components/index'
+import { Alert, Container, Form } from 'react-bootstrap';
+import { zodResolver } from '@hookform/resolvers/zod';
+import './Login.css';
+import { Button } from '@components/index';
 import { z } from 'zod';
 import { useForm, SubmitHandler } from "react-hook-form";
-import { NavLink, useNavigate } from 'react-router-dom'
-import { useState } from 'react'
-import { useAppDispatch } from '@store/hook'
-import { actAuthLogin } from '@store/auth/authSlice'
+import { NavLink, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import Cookie from 'cookie-universal';
+import { useAppDispatch } from '@store/hook';
+import { actAuthLogin } from '@store/auth/authSlice';
 const schema = z.object({
     email: z.string({ required_error: 'required field', invalid_type_error: 'email is required!' }).email(),
     password: z.string({ required_error: 'required field', invalid_type_error: 'password is required!' }).min(8),
@@ -21,7 +21,9 @@ type TUser = {
     password: string
 }
 const Login = () => {
+    const cookie = Cookie()
     const [email, setEmail] = useState('');
+    const [showEye, setShowEye] = useState(false);
     const [password, setPassword] = useState('');
     const data: TUser = {
         email: email,
@@ -45,7 +47,11 @@ const Login = () => {
             // console.log(data)
             dispatch(actAuthLogin(data))
                 .unwrap()
-                .then(() => navigate('/'))
+                .then((res) => {
+                    const token = res.authorisation.token;
+                    cookie.set('token', token);
+                    navigate('/')
+                })
             setEmail('')
             setPassword('')
 
@@ -62,7 +68,9 @@ const Login = () => {
                     <Form.Group className="mb-3 " controlId="formBasicEmail">
                         <Form.Control type="email" placeholder="Enter email" {...register("email"
 
-                        )} />
+                        )}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
                         {/* {errors.email && <span>{errors.email.message}</span>} */}
                         {!errors.email ? <Form.Text className="text-muted">
                             We'll never share your email with anyone else.
@@ -70,9 +78,12 @@ const Login = () => {
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
-                        <Form.Control type="password" placeholder="Password" {...register('password'
+                        <Form.Control type={showEye ? "text" : "password"} placeholder="Password" {...register('password'
 
-                        )} />
+                        )}
+                            onChange={(e) => setPassword(e.target.value)}
+
+                        />
                     </Form.Group>
                     {errors.password && <Alert className='dangerAlert' key='danger' variant='danger'>{errors.password.message}</Alert>}
 

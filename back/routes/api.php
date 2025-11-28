@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\MealController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\RestaurantCategoryController;
 use App\Http\Controllers\RestaurantController;
 use Illuminate\Support\Facades\Route;
@@ -23,4 +24,12 @@ Route::group(['prefix' => 'restaurant'], function () {
 
 Route::group(['prefix' => 'meal'], function () {
     Route::get('show/{restaurantCategory}', [RestaurantCategoryController::class, 'show']);
+    Route::get('details/{meal}', [MealController::class, 'show']);
+});
+Route::group(['prefix' => 'order'], function () {
+    Route::group(['middleware' => 'auth:api'], function () {
+        Route::post('store', [OrderController::class, 'store']);
+        Route::get('{order}/show', [OrderController::class, 'show']);
+        Route::get('orders/{order}', [OrderController::class, 'index']);
+    });
 });

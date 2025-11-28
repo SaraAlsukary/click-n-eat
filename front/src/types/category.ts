@@ -1,9 +1,9 @@
 export type TCategory = {
     id?: number,
     name: string,
-    // media: [{
-    //     original_url: string
-    // }]
+    media: [{
+        original_url: string
+    }]
 }
 export type TCategoryProperty =
     {

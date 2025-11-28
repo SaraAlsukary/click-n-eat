@@ -30,3 +30,7 @@
     color: var(--main-color);
     font-size: 22px;
 }
+.productList .card .image{
+    width: 100%;
+    height: 275px;
+}

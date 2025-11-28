@@ -13,4 +13,5 @@ import RestaurantsList from "./Restaurants/RestaurantsList/RestaurantsList";
 import CartIcon from "./Cart/CartIcon/CartIcon";
 import CartList from "./Cart/CartList/CartList";
 import CartCard from "./Cart/CartCard/CartCard";
-export { Header, Footer, MealCard, MealsList, Cart, CartList, CartCard, Landing, LottieHandler, CartIcon, RestaurantCard, RestaurantsList, SuspensedPage, Button, MainTitle }
+import CartCardCheck from "./Cart/CartCardCheck/CartCardCheck";
+export { Header, Footer, MealCard, MealsList, Cart, CartList, CartCardCheck, CartCard, Landing, LottieHandler, CartIcon, RestaurantCard, RestaurantsList, SuspensedPage, Button, MainTitle }

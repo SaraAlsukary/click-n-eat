@@ -1,0 +1,72 @@
+.check {
+    padding: 100px 0;
+}
+
+.check .content {
+    padding: 100px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.check .left,
+.check .right {
+    width: 47%;
+}
+
+.check h1 {
+    color: var(--main-color);
+}
+
+.username,
+.location {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.check .cartItems .list {
+    display: flex;
+    flex-direction: column;
+}
+
+.dangerAlert {
+    width: 200px;
+    margin-top: 10px;
+}
+
+.form input {
+    width: 200px;
+}
+
+.form input:nth-child(5),
+.form input:last-of-type {
+    width: 100%;
+}
+
+.form input:focus {
+    box-shadow: 0 0 5px 3px var(--main-color);
+    border: 1px solid var(--main-color);
+}
+
+.form input::placeholder {
+    color: var(--main-color);
+}
+
+.loginCont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.loginBtn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginBtn button {
+    width: 100%;
+}

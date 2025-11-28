@@ -1,21 +1,39 @@
+import { minusItemCart, plusItemCart, removeFromCart } from '@store/cart/CartSlice'
+import './CartCard.css'
+import { useDispatch } from 'react-redux'
 type TCartCard = {
-    img: string,
+    id?: number,
+    img?: string,
     title: string,
-    count: string,
-    price: number
+    count: number,
+    price?: number
 }
-const CartCard = ({ img, title, count, price }: TCartCard) => {
+const CartCard = ({ img, title, count, price, id }: TCartCard) => {
+    const dispatch = useDispatch();
+    const removeHandler = () => {
+        dispatch(removeFromCart(id))
+
+    }
+    const plusHandler = () => {
+        dispatch(plusItemCart(id))
+
+    }
+    const minusHandler = () => {
+        dispatch(minusItemCart(id))
+
+
+    }
     return (
         <div className="cartItem">
+            <div className="remove" onClick={removeHandler}>x</div>
             <img src={img} alt="" />
             <div className="title">{title}</div>
             <div className="counting">
-                <span className='plus'>
-                    +</span>
+                <span className="minus" onClick={minusHandler}>-</span>
                 <div className='num'>{count}</div>
-                <span className="minus">-</span>
+                <span className='plus' onClick={plusHandler}>+</span>
             </div>
-            <div className="price">{price}$</div>
+            <div className="price">${price}</div>
         </div>
     )
 }

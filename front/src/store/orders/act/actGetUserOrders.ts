@@ -3,8 +3,10 @@ import axios from "axios";
 import axiosErrorHandler from "@utils/axiosErrorHandler";
 import { RootState } from "@store/index";
 import { TOrder } from "@customtypes/order";
+import Cookie from 'cookie-universal';
 
-type TResponse = TOrder[];
+type TResponse = TOrder;
+const cookie = Cookie()
 
 const actGetUserOrders = createAsyncThunk(
   "orders/actGetUserOrders",
@@ -14,20 +16,21 @@ const actGetUserOrders = createAsyncThunk(
 
     try {
       const res = await axios.get<TResponse>(
-        `/orders?userId=${auth.auth.user}`,
+        `/order/${auth.auth.data?.user.id}/show`,
+        // `/orders/${auth.auth.data?.user.id}/`,
         {
           signal,
+          headers: {
+            Authorization: 'Bearer' + cookie.get('token'),
+            'Content-Type': 'application/json'
+
+          }
         }
       );
-
-      const orders = res.data.map((el) => ({
-        id: el.id,
-        // subtotal: el.subtotal,
-        // items: el.items,
-      }));
-
-      return orders;
+      console.log(res.data?.data)
+      return res.data?.data;
     } catch (error) {
+      console.log(error)
       return rejectWithValue(axiosErrorHandler(error));
     }
   }

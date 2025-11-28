@@ -49,7 +49,7 @@ const CategoryList = () => {
             dispatch(categoriesRecordsCleanUp());
         };
     }, [dispatch]);
-    const CategoriesCard = categoryData?.map((cate) => <CategoryCard id={cate.id} name={cate.name}
+    const CategoriesCard = categoryData?.map((cate) => <CategoryCard key={cate.id} media={cate.media} id={cate.id} name={cate.name}
     // media={cate.media}
     />)
     return (

@@ -3,7 +3,7 @@ import './CategoryCard.css'
 import { TCategory } from '@customtypes/category'
 import { useNavigate } from 'react-router-dom'
 
-const CategoryCard = ({ name, id }: TCategory) => {
+const CategoryCard = ({ name, id, media }: TCategory) => {
     const navigate = useNavigate();
     const clickHandler = () => {
         navigate(`categories/${id}`);
@@ -31,8 +31,8 @@ const CategoryCard = ({ name, id }: TCategory) => {
         })
     }
     return (
-        <Col key={id} onClick={clickHandler} lg={3} md={4} sm={4} className="menuCard">
-            {/* <img src={`${media[0]?.original_url}`} alt="" /> */}
+        <Col onClick={clickHandler} lg={3} md={4} sm={4} className="menuCard">
+            <img src={`${media[0]?.original_url}`} alt="" />
             <p>{name}</p>
         </Col>
     )

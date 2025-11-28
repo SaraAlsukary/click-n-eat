@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Category;
+use App\Models\Meal;
 use App\Models\Restaurant;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -117,5 +118,83 @@ class MideaSeeder extends Seeder
             ->addMedia($image_Restaurant_8)
             ->preservingOriginal()
             ->toMediaCollection('restaurants');
+        $image_meal_1 = storage_path('images\meal_1.jpg');
+        $image_meal_2 = storage_path('images\meal_2.jpg');
+        $image_meal_4 = storage_path('images\meal_3.jpg');
+        $image_meal_3 = storage_path('images\meal_4.jpg');
+        $image_meal_5 = storage_path('images\meal_5.jpg');
+        $image_meal_6 = storage_path('images\meal_6.jpg');
+        $image_meal_7 = storage_path('images\meal_7.jpg');
+        $image_meal_8 = storage_path('images\meal_8.png');
+        $image_meal_9 = storage_path('images\meal_9.png');
+        $image_meal_10 = storage_path('images\meal_10.png');
+        $image_meal_11 = storage_path('images\meal_11.png');
+        $image_meal_12 = storage_path('images\meal_12.png');
+        $image_meal_13 = storage_path('images\meal_13.png');
+        $meal_1 = Meal::find(1);
+        $meal_1
+            ->addMedia($image_meal_1)
+            ->preservingOriginal()
+            ->toMediaCollection('meals');
+        $meal_2 = Meal::find(2);
+        $meal_2
+            ->addMedia($image_meal_2)
+            ->preservingOriginal()
+            ->toMediaCollection('meals');
+        $meal_3 = Meal::find(3);
+        $meal_3
+            ->addMedia($image_meal_3)
+            ->preservingOriginal()
+            ->toMediaCollection('meals');
+        $meal_4 = Meal::find(4);
+        $meal_4
+            ->addMedia($image_meal_4)
+            ->preservingOriginal()
+            ->toMediaCollection('meals');
+        $meal_5 = Meal::find(5);
+        $meal_5
+            ->addMedia($image_meal_5)
+            ->preservingOriginal()
+            ->toMediaCollection('meals');
+        $meal_6 = Meal::find(6);
+        $meal_6
+            ->addMedia($image_meal_6)
+            ->preservingOriginal()
+            ->toMediaCollection('meals');
+        $meal_7 = Meal::find(7);
+        $meal_7
+            ->addMedia($image_meal_7)
+            ->preservingOriginal()
+            ->toMediaCollection('meals');
+        $meal_8 = Meal::find(8);
+        $meal_8
+            ->addMedia($image_meal_8)
+            ->preservingOriginal()
+            ->toMediaCollection('meals');
+        $meal_9 = Meal::find(9);
+        $meal_9
+            ->addMedia($image_meal_9)
+            ->preservingOriginal()
+            ->toMediaCollection('meals');
+        $meal_10 = Meal::find(10);
+        $meal_10
+            ->addMedia($image_meal_10)
+            ->preservingOriginal()
+            ->toMediaCollection('meals');
+        $meal_11 = Meal::find(11);
+        $meal_11
+            ->addMedia($image_meal_11)
+            ->preservingOriginal()
+            ->toMediaCollection('meals');
+        $meal_12 = Meal::find(12);
+        $meal_12
+            ->addMedia($image_meal_12)
+            ->preservingOriginal()
+            ->toMediaCollection('meals');
+        $meal_13 = Meal::find(13);
+        $meal_13
+            ->addMedia($image_meal_13)
+            ->preservingOriginal()
+            ->toMediaCollection('meals');
     }
 }

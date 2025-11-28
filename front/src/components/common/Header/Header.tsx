@@ -1,9 +1,13 @@
 import { Container, Nav, Navbar } from 'react-bootstrap'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import Button from '@components/feedBack/Button/Button';
 import DishIcon from '@assets/svgs/dish-plate-svgrepo-com.svg?react';
 import './Header.css'
+import Cookie from 'cookie-universal';
+import { useAppSelector } from '@store/hook';
 const Header = () => {
+    const cookie = Cookie();
+    const { data } = useAppSelector(state => state.auth)
     return (
 
         <Navbar expand="lg" className="bg-body-white nav">
@@ -20,7 +24,16 @@ const Header = () => {
                         <NavLink to="/">Home</NavLink>
                         <NavLink to="food">Food</NavLink>
                         <NavLink to="restaurant">Restaurants</NavLink>
-                        <NavLink to="login"><Button>Login</Button></NavLink>
+                        {cookie.get('token') ?
+                            <NavLink to="/profile">
+                                <div className='profile'><i className="pi pi-user"></i>{data?.user?.name}</div>
+                            </NavLink>
+                            :
+                            <NavLink to="login">
+                                <Button>Login</Button>
+                            </NavLink>
+
+                        }
                     </Nav>
                 </Navbar.Collapse>
             </Container>

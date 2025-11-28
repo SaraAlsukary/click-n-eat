@@ -4,6 +4,11 @@
     justify-content: space-around;
 }
 
+.cartItem .remove {
+    cursor: pointer;
+    color: var(--main-color);
+}
+
 .cartItem:not(:last-of-type) {
     border-bottom: 1px solid #fff;
 }
