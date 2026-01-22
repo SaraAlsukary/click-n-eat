@@ -5,7 +5,7 @@ const Landing = () => {
         <div className='land'>
             <div className="text">
                 <h2>Are you hungry ?</h2>
-                <p>Within a few click, find meals that are deliciuos and have good taste</p>
+                <p>With just a few clicks, find delicious meals with great taste</p>
             </div>
         </div>
     )
